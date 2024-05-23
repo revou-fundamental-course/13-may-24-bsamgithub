@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Project BSam</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/index.js"></script> -->
 </head>
 
 <body>
+    <script src="./js/script.js"></script>
+
     <header>
         <h1>Welcome to the calculator!</h1>
         <section>
@@ -19,19 +22,47 @@
             </p>
         </section>
     </header>
+        <br/>
+        <br/>
+        <br/>
+    <section>
+        <h3>
+            Write your email to subscribe!
+        </h3>
+        <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+            Name: <input type="text" name="fname">
+            <div id="input-submit">
+                <input type="submit" value="Submit">
+            </div>
+            
+          </form>
+    </section>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
     <section>
         <!-- Ini Title General -->
         <div class="section-content">
             <h3>Segitiga</h3>
         </div>
-        <button type="button" id="switch-keliling">
+        <!-- <button type="button" id="switch-keliling">
             <u>
                 Switch to "Keliling Segitiga"
             </u>
+        </button> -->
+        <button type="button" id="switch-keliling">
+            <a href="#keliling-section">
+                <u>
+                    Switch to "Keliling Segitiga"
+                </u>
+            </a>
         </button>
-        <section>
+
+        <section id="luas-section">
+            <!-- Konten Atas Luas Segitiga -->
             <section>
-                <!-- Konten Atas Luas Segitiga -->
+                
                 <div class="section-content">
                     <h2>Luas Segitiga</h2>
                 </div>
@@ -58,17 +89,35 @@
                 </header>
 
                 <form>
-                   <section>
-                        <div>
-                            <label>Alas Segitiga = </label><input/>
+                    <section>
+
+                        <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+                            <input type="number" id="alas" name="alas" placeholder="Nilai Alas">
+                        <br>
+                            <input type="number" id="tinggi" name="tinggi" placeholder="Nilai Tinggi">
+                        </form>
+                    </section>
+                   
+                    <div id="luas"></div>
+                    <div id="hasilperhitungan"></div>
+
+                    <div class="button">
+                        <div class="hitung">
+
+                            <button id="hitung" onclick="hitungluas()">
+                            <!-- <button id="hitung" onclick="hitungluas()"> -->
+                                Hitung
+                            </button>
                         </div>
-                        <div>
-                            <label>Tinggi Segitiga= </label><input/>
+                        
+                        <div class="reset">
+                            <button id="resetbtn" onclick="resetluas()">Reset</button> 
                         </div>
-                   </section>
-                   <p> Diketahui</p>
-                   <Button type="button">Hitung</Button>
-                   <Button type="button" id="reset-btn">Reset</Button>
+                   
+                    </div>
+
+                   <!-- <Button type="button">Hitung</Button>
+                   <Button type="button" id="reset-btn">Reset</Button> -->
                 </form>
             </section>
         </section>
@@ -89,7 +138,7 @@
     <br/>
     <!-- Pemisah Utama -->
 
-    <section>
+    <section id="keliling-section" style="padding-top: 32px;">
         <section>
             <!-- Konten Atas Keliling Segitiga -->
             <div class="section-content2">
@@ -118,8 +167,17 @@
             </header>
 
             <form>
-               <section>
-                    <div>
+                <section>
+                    <form>
+                        <input type="number" id="S1" name="S1" placeholder="Sisi a">
+                        <br>
+                        <input type="number" id="S2" name="S2" placeholder="Sisi b">
+                        <br>
+                        <input type="number" id="S3" name="S3" placeholder="Sisi c">
+                        <br>
+                    </form>
+
+                    <!-- <div>
                         <label>Panjang sisi a = </label><input/>
                     </div>
                     <div>
@@ -127,12 +185,34 @@
                     </div>
                     <div>
                         <label>Panjang sisi c = </label><input/>
+                    </div> -->
+                </section>
+                
+                <div id="keliling"></div>
+                <div id="hasilkeliling"></div>
+
+                <div class="button">
+                    <div class="hitung">
+                    <button id="hitung" onclick="hitungkeliling()">Hitung</button> 
                     </div>
-               </section>
-               <p> Diketahui</p>
-               <Button type="button">Hitung</Button>
-               <Button type="button" id="reset-btn">Reset</Button>
+                    
+                    <div class="reset">
+                        <button id="resetbtn" onclick="resetkeliling()">Reset</button>
+                    </div>
+                </div>
+
+               <!-- <Button type="button">Hitung</Button>
+               <Button type="button" id="reset-btn">Reset</Button> -->
             </form>
+        </section>
+        <section>
+            <button type="button" id="switch-luas">
+                <a href="#luas-section">
+                    <u>
+                        Switch to "Luas Segitiga"
+                    </u>
+                </a>
+            </button>
         </section>
     </section>
 </body>
